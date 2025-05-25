@@ -18,7 +18,7 @@ pygame.mixer.init()
 KNOWN_FACES_DIR = 'known_faces'
 SUSPECTS_FILE = 'known_suspects.dat'
 ALARM_SOUND = "alarm.mp3"
-RECORDING_FPS = 20.0
+RECORDING_FPS = 30.0
 FRAME_SIZE = (640, 480)
 SECURITY_EMAIL = os.getenv("SECURITY_EMAIL")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
@@ -94,7 +94,7 @@ def start_recording():
     global recording, video_writer
     if not recording:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"surveillance_{timestamp}.avi"
+        filename = f"surveillance_{timestamp}.mkv"
         fourcc = cv.VideoWriter_fourcc(*'XVID')
         video_writer = cv.VideoWriter(
             filename, fourcc, RECORDING_FPS, FRAME_SIZE)
